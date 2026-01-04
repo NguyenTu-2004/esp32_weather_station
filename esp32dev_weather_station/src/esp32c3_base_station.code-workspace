@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "esp32c3_base_station",
+			"path": "../../esp32c3_base_station"
+		},
+		{
+			"name": "esp32dev_weather_station",
+			"path": ".."
+		},
+		{
+			"name": "esp32dev_tx",
+			"path": "../../../ESP_NOW/esp32dev_tx"
+		},
+		{
+			"name": "test_gp2y1010",
+			"path": "../../../test_gp2y1010"
+		},
+		{
+			"name": "test1",
+			"path": "../../../../test1"
+		},
+		{
+			"name": "mqtt_protocol",
+			"path": "../../../protocol/mqtt_protocol"
+		}
+	],
+	"settings": {}
+}
