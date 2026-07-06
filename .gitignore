@@ -1,0 +1,14 @@
+.pio
+.pioenvs
+.piolibdeps
+
+.vscode
+.idea
+
+*.elf
+*.bin
+*.hex
+*.map
+sdkconfig
+sdkconfig.old
+__pycache__/
