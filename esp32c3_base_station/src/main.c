@@ -101,23 +101,22 @@ void wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_start());
 
-    ESP_ERROR_CHECK(esp_wifi_set_channel(11, WIFI_SECOND_CHAN_NONE));
+    ESP_ERROR_CHECK(esp_wifi_set_channel(5, WIFI_SECOND_CHAN_NONE));
 }
 
 void oled_task(void *pvParameter)
 {
     init_ssd1306();
+    ssd1306_clear();
+    ssd1306_print_str(0, 24, "Waiting for data", false);
+    ssd1306_print_str(50, 40, "...", false);
+    ssd1306_display();
     while (1) {
-        if (!data_ready) {
-            ssd1306_clear();
-            ssd1306_print_str(0, 24, "Waiting for data", false);
-            ssd1306_print_str(50, 40, "...", false);
-            ssd1306_display();
-        } else {
+        if (data_ready) {
             data_ready = false;
             weather_ui_display(rx_data.temperature, rx_data.humidity, rx_data.pressure);
         }
-        vTaskDelay(pdMS_TO_TICKS(2000));
+        vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
 
